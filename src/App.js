@@ -3,8 +3,21 @@ import './App.css';
 
 class App extends Component {
   render() {
+    const arr = ['1', '2','3'];
     return (
-        <h1>Hey</h1>
+      <div>
+        <h1>Hey</h1><p>edaf</p>
+        
+        
+        <ul>
+          {arr.map(a =>
+             <li>{a}</li>
+          )}
+        </ul>
+        
+        </div>
+        
+        
     );
   }
 }
