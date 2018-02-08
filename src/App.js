@@ -5,7 +5,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      name: "default"
+      name: "default",
+      terms: false
     }
   }
   
@@ -14,13 +15,18 @@ class App extends Component {
         <div>
           <h1>Hey</h1>
           <input type="text" value={this.state.name} onChange={this.updateName.bind(this)}/>
+          <div>
+            <label>
+              <input type="checkbox" checked={this.state.terms} onClick={this.updateTerms.bind(this)}/> Accept
+            </label>
+          </div>
           <button onClick={this.sayHi.bind(this)}>Hi!</button>
         </div>
     );
   }
   
   sayHi(){
-    console.log("Hi!!", this.state.name);
+    console.log("Hi!!", this.state.name, this.state.terms);
   }
   
   updateName(e){
@@ -29,6 +35,11 @@ class App extends Component {
     })
   }
   
+  updateTerms(e){
+    this.setState({
+      terms: e.target.checked
+    })
+  }
 }
 
 export default App;
